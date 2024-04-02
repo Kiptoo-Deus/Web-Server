@@ -8,8 +8,8 @@ import (
 
 func main() {
 
-  http.Handle("/", HTTP.FileServer(h))
+ http.Handle("/", http.FileServer(http.Dir("./static")))
 
-    log.Fatal(http.ListenAndServe(":8081", nil))
+     log.Fatal(http.ListenAndServeTLS(":443", "server.crt", "server.key", nil))
 
 }
